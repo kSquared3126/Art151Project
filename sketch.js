@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 1000);
 }
 
 function draw() {
@@ -42,5 +42,28 @@ function draw() {
   bezier(310,100,325,10,350,10,389,100);
   fill(0,220,0);
   //triangle(337,10)
+  
+  let pencil1 = new Pencil(300,300);
+  pencil1.create(pencil1.x,pencil1.y);
+  
+  
+}
+
+class Pencil{
+  constructor(x,y){
+    this.x = x;
+    this.y= y;
+  }
+  
+  create(x,y){
+    fill(220,150,0);
+    rect(x,y,20,200);//pencil
+    fill(210,180,140);
+    triangle(x,y,x+20,y,x+10,y-20);
+    fill(0,0,0);
+    triangle(x+10,y-20,x+11,y-19,x+9,y-19);
+    fill(220,180,170);
+    rect(x,y+200,20,15,3);
+  }
   
 }
