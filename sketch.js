@@ -1,14 +1,14 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(255,203,164);
+  background(255,246,227);
   balls = [];
   portals = [];
 }
 
 function draw() {
-  background(255,203,164);
+  background(255,246,227);
 
-  line(200,0,200,windowHeight)
+  line((windowWidth-200),0,(windowWidth-200),windowHeight)
 
 for(let i=0; i< balls.length; i++){
   balls[i].update();
@@ -16,7 +16,7 @@ for(let i=0; i< balls.length; i++){
 }
 for(let i=0; i< portals.length; i++){
   portals[i].show();
-  portals[i].tele();
+  portals[i].tele(balls[i].pos.x, i);
 }
 }
 
@@ -36,8 +36,8 @@ function keyPressed(){
 function Ball(x,y,r,g,b){
   this.pos = createVector(x,y);
   //this.dir = createVector(random(-1,1), random(-1,1));
-  this.dir = createVector(-1, random(-1,1));
-  this.speed = random(1,10);
+  this.dir = createVector(1, 0);
+  this.speed = random(5,6);
   this.colors = [r,g,b];
 
   this.update = function(){
@@ -50,15 +50,10 @@ function Ball(x,y,r,g,b){
     if(this.pos.y >= windowHeight-15 || this.pos.y <= 15){
       this.dir.y*=-1;
     }
-      if(portals.length > 0){
-        if(this.pos.x <= 200){
-        this.pos.x = portals[0].x;
-        this.pos.y = portals[0].y;
-      }
-    }
+
   }
   this.show = function(){
-    //noStroke();
+    noStroke();
     stroke(0);
     fill(this.colors[0], this.colors[1], this.colors[2], 63);
     ellipse(this.pos.x, this.pos.y, 30,30);
@@ -70,13 +65,15 @@ function Portal(x,y){
     stroke(1);
     fill(255,0,0, 0);
     ellipse(x,y, 50, 50);
-
-  this.tele = function(){
-    if(balls[0].x >= 200){
-      balls[0].pos.x = 300;
-      balls[0].pos.y = 300;
+    }
+  this.tele = function(x,i){
+    
+      if(x >= (windowWidth-200)){
+          balls[i].pos.x = portals[0].x;
+          balls[i].pos.y = portals[0].y; 
+          
+          //teleportcoun++ (each time it tele's, make it go to the next portal)
+        }
     }
   }
-  }
-}
 
