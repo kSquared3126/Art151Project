@@ -3,22 +3,27 @@ function setup() {
   background(255,246,227);
   balls = [];
   portals = [];
+  portals.push(new Portal(random(25,windowWidth-25),random(25,windowHeight-25)));
+  portals.push(new Portal(random(25,windowWidth-25),random(25,windowHeight-25)));
+
+//  alert("Here goes the paragraph intro 'title, description, key element, user interface manual")
 }
 
 function draw() {
-  background(255,246,227);
-
-  line((windowWidth-200),0,(windowWidth-200),windowHeight)
+  //background(255,246,227);
+line((windowWidth-200),0,(windowWidth-200),windowHeight)
 
 for(let i=0; i< balls.length; i++){
   balls[i].update();
   balls[i].show();
+  if(balls[i].pos.x>windowWidth-200){
+    balls[i].tele(i);
+  }
 }
 for(let i=0; i< portals.length; i++){
   portals[i].show();
-  portals[i].tele(balls[i].pos.x, i);
 }
-}
+} 
 
 
 function mousePressed(){
@@ -29,8 +34,14 @@ function mousePressed(){
   }
 
 function keyPressed(){
-  portals.push(new Portal(mouseX,mouseY));  
-  }
+  // portals.push(new Portal(random(25,windowWidth-25),random(25,windowHeight-25)));
+  // portals.push(new Portal(random(25,windowWidth-25),random(25,windowHeight-25)));
+  // portals.splice(0,2);
+  portals[0].x = random(25,windowWidth-25);
+  portals[0].y = random(25,windowHeight-25);
+  portals[1].x = random(25,windowWidth-25);
+  portals[1].y = random(25,windowHeight-25);
+}
   
 
 function Ball(x,y,r,g,b){
@@ -50,7 +61,6 @@ function Ball(x,y,r,g,b){
     if(this.pos.y >= windowHeight-15 || this.pos.y <= 15){
       this.dir.y*=-1;
     }
-
   }
   this.show = function(){
     noStroke();
@@ -58,22 +68,22 @@ function Ball(x,y,r,g,b){
     fill(this.colors[0], this.colors[1], this.colors[2], 63);
     ellipse(this.pos.x, this.pos.y, 30,30);
   } 
-}
+  this.tele = function(i){
+    tempx = portals[0].x;
+    tempy = portals[0].y;
+    balls[i].pos.x = tempx;
+    balls[i].pos.y = tempy;  
+    }
+        
+  }
+
 
 function Portal(x,y){
   this.show = function(){
     stroke(1);
-    fill(255,0,0, 0);
+    fill(255,0,0, 5);
     ellipse(x,y, 50, 50);
     }
-  this.tele = function(x,i){
-    
-      if(x >= (windowWidth-200)){
-          balls[i].pos.x = portals[0].x;
-          balls[i].pos.y = portals[0].y; 
-          
-          //teleportcoun++ (each time it tele's, make it go to the next portal)
-        }
-    }
   }
+//pressing a key randomly changes pos of 2 portals
 
