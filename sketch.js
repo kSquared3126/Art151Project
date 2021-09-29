@@ -13,7 +13,7 @@ function setup() {
   leftportals.push(new Portal(random(25,windowWidth-25),random(37,windowHeight-37)));
   rightportals.push(new Portal(random(linelimit,windowWidth-25),random(37,windowHeight-37)));
 
-//  alert("Here goes the paragraph intro 'title, description, key element, user interface manual")
+  alert("Portals. This project's focus is the mechanism of teleporting portals. When a line goes through a portal, it should appear on the other side of the portal. Left click to create balls, and press any key to change the location of the portals.")
 }
 
 function draw() {
@@ -107,7 +107,7 @@ function Ball(x,y,r,g,b){
       balls[i].pos.x = tempx;
       balls[i].pos.y = tempy; 
     }
-    else{ //left portal
+    else if(z===l){ //left portal
       if(this.dir.x<0){ //going left
         tempx = rightportals[0].x-25;
         if(this.dir.y<0){ //going down
