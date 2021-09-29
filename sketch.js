@@ -26,7 +26,7 @@ for(let i=0; i< balls.length; i++){
   //   balls[i].tele(i,l); //goes throught left portal
   // }
 
-  if(balls[i].pos.x > (rightportals[0].x-24) && balls[i].pos.x < (rightportals[0].x+24) && balls[i].pos.y > (rightportals[0].y-36) && balls[i].pos.y < (rightportals[0].y+36)){
+  if(balls[i].pos.x > (rightportals[0].x-25) && balls[i].pos.x < (rightportals[0].x+25) && balls[i].pos.y > (rightportals[0].y-37) && balls[i].pos.y < (rightportals[0].y+37)){
     balls[i].tele(i,r); //goes through right portal
   }
 }
