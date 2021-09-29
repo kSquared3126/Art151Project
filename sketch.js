@@ -107,6 +107,11 @@ function Ball(x,y,r,g,b){
       balls[i].pos.x = tempx;
       balls[i].pos.y = tempy; 
     }
+    else{
+      balls[i].pos.x = tempx;
+      balls[i].pos.y = tempy;
+    }
+
     // else if(z===l){ //left portal
     //   if(this.dir.x<0){ //going left
     //     tempx = rightportals[0].x-25;
