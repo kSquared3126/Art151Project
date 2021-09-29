@@ -10,10 +10,10 @@ function setup() {
   linelimit = windowWidth/2;
   
   //Probably should just hard code this rather than pushing them into the arrays
-  leftportals.push(new Portal(random(25,windowWidth-25),random(37,windowHeight-37)));
+  leftportals.push(new Portal(random(25,linelimit-25),random(37,linelimit-37)));
   rightportals.push(new Portal(random(linelimit,windowWidth-25),random(37,windowHeight-37)));
 
-  alert("Portals. This project's focus is the mechanism of teleporting portals. When a line goes through a portal, it should appear on the other side of the portal. Left click to create balls, and press any key to change the location of the portals.")
+  alert("Portals. This project's focus is the mechanism of teleporting portals. When a line goes through a portal, it should appear on the other side of the portal. Left click to create lines, and press any key to change the location of the portals.");
 }
 
 function draw() {
