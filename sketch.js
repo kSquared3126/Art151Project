@@ -22,9 +22,9 @@ for(let i=0; i< balls.length; i++){
   balls[i].update();
   balls[i].show();
 
-  if(balls[i].pos.x > (leftportals[0].x-24) && balls[i].pos.x < (leftportals[0].x+24) && balls[i].pos.y > (leftportals[0].y-36) && balls[i].pos.y < (leftportals[0].y+36)){
-    balls[i].tele(i,l); //goes throught left portal
-  }
+  // if(balls[i].pos.x > (leftportals[0].x-24) && balls[i].pos.x < (leftportals[0].x+24) && balls[i].pos.y > (leftportals[0].y-36) && balls[i].pos.y < (leftportals[0].y+36)){
+  //   balls[i].tele(i,l); //goes throught left portal
+  // }
 
   if(balls[i].pos.x > (rightportals[0].x-24) && balls[i].pos.x < (rightportals[0].x+24) && balls[i].pos.y > (rightportals[0].y-36) && balls[i].pos.y < (rightportals[0].y+36)){
     balls[i].tele(i,r); //goes through right portal
@@ -107,28 +107,28 @@ function Ball(x,y,r,g,b){
       balls[i].pos.x = tempx;
       balls[i].pos.y = tempy; 
     }
-    else if(z===l){ //left portal
-      if(this.dir.x<0){ //going left
-        tempx = rightportals[0].x-25;
-        if(this.dir.y<0){ //going down
-          tempy = rightportals[0].y+25;
-        }
-        else{ //going up
-          tempy = rightportals[0].y-25;
-        }
-      }
-      else{ //going right
-        tempx = rightportals[0].x+25;
-        if(this.dir.y<0){ //going down
-          tempy = rightportals[0].y+25;
-        }
-        else{ //going up
-          tempy = rightportals[0].y-25;
-        }
-      }
-      balls[i].pos.x = tempx;
-      balls[i].pos.y = tempy; 
-    }
+    // else if(z===l){ //left portal
+    //   if(this.dir.x<0){ //going left
+    //     tempx = rightportals[0].x-25;
+    //     if(this.dir.y<0){ //going down
+    //       tempy = rightportals[0].y+25;
+    //     }
+    //     else{ //going up
+    //       tempy = rightportals[0].y-25;
+    //     }
+    //   }
+    //   else{ //going right
+    //     tempx = rightportals[0].x+25;
+    //     if(this.dir.y<0){ //going down
+    //       tempy = rightportals[0].y+25;
+    //     }
+    //     else{ //going up
+    //       tempy = rightportals[0].y-25;
+    //     }
+    //   }
+    //   balls[i].pos.x = tempx;
+    //   balls[i].pos.y = tempy; 
+    // }
     
   }
         
